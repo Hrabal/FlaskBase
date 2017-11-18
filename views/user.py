@@ -36,11 +36,6 @@ def logout():
     return redirect(request.referrer)
 
 
-@login_manager.unauthorized_handler
-def unauthorized():
-    return Page401().render()
-
-
 @app.route('/edit_user')
 @app.route('/edit_user/<user_id>')
 @login_required
