@@ -21,6 +21,12 @@ git push --mirror https://github.com/YourGitHubUser/YourProjectRepository.git
 
 Edit the `config.py` file to change the db settings (default is a SqlLite db named after the directory your project is in).
 
+Run the webapp:
+
+```shell
+python3 run.py
+```
+
 Site routes and URIs should be defined in the views directory, avery SQLAlchemy models file should be placed in the models subdirectory.
 
 The static folder is divided into `css`, `files`, `img` and `js` sobfolders, store your static resources here.
