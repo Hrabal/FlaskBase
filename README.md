@@ -27,7 +27,7 @@ The static folder is divided into `css`, `files`, `img` and `js` sobfolders, sto
 
 ## Db commodities
 
-Db migration scripts are based (well... stolen) from the great [Miguel Grinberg's The Flask Mega-Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database). Read this to understand what's happening.
+Db migration scripts are based (well... stolen) from the great [Miguel Grinberg's The Flask Mega-Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database), read it to understand what's happening.
 
 For a quick start run the scripts:
 
