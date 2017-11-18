@@ -18,4 +18,5 @@ db = SQLAlchemy(app)
 logging.basicConfig()
 logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
 
-import views, models
+import models
+import views
