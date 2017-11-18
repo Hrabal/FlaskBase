@@ -1,0 +1,8 @@
+*.sublime*
+*.pyc
+*.sublime-*
+.tox
+__pycache__
+*.egg-info
+db_repository/
+app.db
