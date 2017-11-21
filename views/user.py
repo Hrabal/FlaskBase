@@ -26,7 +26,6 @@ def before_request():
 def login():
     if request.method == 'POST':
         user = User.query.filter_by(username=request.form['username']).first()
-        login_page = 
         if user:
             form_password = request.form['password'].encode('utf-8')
             if bcrypt.checkpw(form_password, user.password):
