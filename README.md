@@ -45,3 +45,10 @@ python3 db_upgrade.py
 ## Views magic
 
 Every `.py` file in the views directory will be loaded and **executed**. That means that every `@app.route` registered in the views directory will be served.
+
+## User Authentication
+
+This blueprint contains a baisc user login feature in the `views/user.py` view.
+The `/login` route handles renders a basic login form, replace TEMP_USER_FORM and all his usages in the file with your custom form to make it pretty, just be sure to add in the form a hidden input called "referrer" with the request.referrer value in it.
+
+The route manages redirection to the pre-login page, i.e: from x page the user clicks the login link and when authenticated he is redirected to the x page. It also manages basic login errors.
