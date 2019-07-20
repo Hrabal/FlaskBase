@@ -12,21 +12,17 @@ def dump_datetime(value):
 
 
 class Dictable:
-
     def serialize(self, relations=True):
-        item_id = getattr(self, 'id', getattr(self, 'code', None))
-        res = {
-            'id': item_id,
-        }
+        item_id = getattr(self, "id", getattr(self, "code", None))
+        res = {"id": item_id}
         for k, v in self.iter_model():
             if isinstance(v, datetime):
-                res.setdefault('data', {})[k] = dump_datetime(v)
+                res.setdefault("data", {})[k] = dump_datetime(v)
             elif isinstance(v, RelationshipProperty):
                 if relations:
-                    res.setdefault('related', {})[k] = [i.serialize()
-                                                        for i in v]
+                    res.setdefault("related", {})[k] = [i.serialize() for i in v]
             else:
-                res.setdefault('data', {})[k] = v
+                res.setdefault("data", {})[k] = v
         return res
 
     @property

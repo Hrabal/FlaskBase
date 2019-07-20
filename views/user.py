@@ -17,29 +17,34 @@ TEMP_USER_FORM = """
 </form>
 """
 
+
 @app.before_request
 def before_request():
     g.user = current_user
 
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route("/login", methods=["GET", "POST"])
 def login():
-    if request.method == 'POST':
-        user = User.query.filter_by(username=request.form['username']).first()
+    if request.method == "POST":
+        user = User.query.filter_by(username=request.form["username"]).first()
         if user:
-            form_password = request.form['password'].encode('utf-8')
+            form_password = request.form["password"].encode("utf-8")
             if bcrypt.checkpw(form_password, user.password):
                 login_user(user, remember=True)
-                return redirect(request.form['referrer'])
+                return redirect(request.form["referrer"])
             else:
                 login_page.set_form(request.form)
-                return TEMP_USER_FORM.format(referrer=request.referrer, error='Wrong Password')
+                return TEMP_USER_FORM.format(
+                    referrer=request.referrer, error="Wrong Password"
+                )
         else:
-            return TEMP_USER_FORM.format(referrer=request.referrer, error='Wrong Username')
-    return TEMP_USER_FORM.format(referrer=request.referrer, error='')
+            return TEMP_USER_FORM.format(
+                referrer=request.referrer, error="Wrong Username"
+            )
+    return TEMP_USER_FORM.format(referrer=request.referrer, error="")
 
 
-@app.route('/logout')
+@app.route("/logout")
 def logout():
     logout_user()
     return redirect(request.referrer)
