@@ -5,6 +5,7 @@ from sqlalchemy.ext.hybrid import hybrid_property
 from app import db
 from models.dbtools import Dictable
 
+
 class User(db.Model, Dictable):
     user_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username = db.Column(db.String(64), index=True, unique=True,
